@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ruby_play/features/auth/login_screen.dart';
 
 import '../music/home_page.dart';
 
@@ -11,16 +12,17 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  // void initState() {
-  //   super.initState();
-  //   // Navigate to home after 2 seconds
-  //   Future.delayed(Duration(seconds: 10), () {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => HomePage()),
-  //     );
-  //   });
-  // }
+  void initState() {
+    super.initState();
+    // Navigate to home after 3 seconds
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +39,11 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.music_note, size: 100, color: Color(0xFFE0115F)),
+              Icon(
+                Icons.music_note,
+                size: 100,
+                color: Theme.of(context).colorScheme.primary,
+              ),
               SizedBox(height: 20),
               Text(
                 'Ruby Play',
